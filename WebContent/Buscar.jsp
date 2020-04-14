@@ -22,16 +22,17 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+	
+	<form class="form-inline" style="margin-left: 25px" method="POST" action="Busqueda">
 	<h2>Buscar Empleado</h2>
 	<span class="requiered_notification">* Datos requeridos</span>
 	<br>
 	<br>
-	<form class="form-inline" style="margin-left: 25px">
 		<label class="sr-only" for="inlineFormInputName2">Name</label> <input
 			type="number" class="form-control mb-2 mr-sm-2"
-			id="inlineFormInputName2" required> <label class="sr-only"
+			id="codigo" name="codigo" required> <label class="sr-only"
 			for="inlineFormInputGroupUsername2">Codigo</label>
-		<button type="submit" class="btn btn-primary mb-2">Submit</button>
+		<button type="submit" class="btn btn-success mb-2">Buscar</button>
 	</form>
 
 </body>

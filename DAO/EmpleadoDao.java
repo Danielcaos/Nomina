@@ -1,3 +1,5 @@
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmpleadoDao {
@@ -21,11 +23,31 @@ public class EmpleadoDao {
 
 	}
 
-	public void buscar(int codigo) {
-		String sql = "SELECT codigo, cedula, nombre, fechanacimiento, fechaingreso, fecharetiro FROM empleado where codigo ="
-				+ codigo;
+	public Empleado buscar (Empleado nomina){
 
-		
-	}
+        String sql = "SELECT * FROM empleado WHERE codigo = "+"'"+nomina.getCodigo()+"'";
+        Empleado e = new Empleado();
+           try {
+
+               ResultSet ps = con.query(sql);
+
+               if(ps.next()){
+                   e.setCodigo( Integer.parseInt(ps.getString(1)));
+                   e.setCedula( Integer.parseInt(ps.getString(2)));
+                   e.setNombre( ps.getString(3));
+                   e.setFechaN(Date.valueOf(ps.getString(4)));
+                   e.setFechaI( Date.valueOf(ps.getString(5)));
+                   e.setFechaR( Date.valueOf(ps.getString(6)));
+                   
+                   System.out.println(e.getFechaR());
+                   }
+           } catch (SQLException a) {
+               a.printStackTrace();
+           }
+
+
+           return e;
+
+   }
 
 }
